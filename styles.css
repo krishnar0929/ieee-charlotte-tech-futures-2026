@@ -166,67 +166,135 @@ footer { background: #03172f; color: rgba(255,255,255,.75); padding: 28px 0; }
 
 /* Organizers & Collaborators */
 .details-section {
-    padding-bottom: 24px;
+  padding-bottom: 24px;
 }
 
 .organizers-section {
-    padding-top: 24px;
-    padding-bottom: 56px;
+  padding-top: 24px;
+  padding-bottom: 54px;
 }
 
 .organizers-section .section-title {
-    margin: 8px 0 18px;
+  margin: 8px 0 18px;
 }
 
 .organizers-section h3 {
-    margin: 14px 0 12px;
-    font: 800 1.15rem Montserrat, sans-serif;
-    color: var(--navy);
+  margin: 18px 0 14px;
+  font: 800 1.15rem Montserrat, sans-serif;
+  color: var(--navy);
 }
 
 .organizer-logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin: 10px 0 24px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin: 10px 0 30px;
 }
 
-.organizer-logos img {
-    width: 180px;
-    height: 90px;
-    object-fit: contain;
-    background: #ffffff;
-    padding: 12px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(16,36,62,.04);
+.logo-card {
+  width: 250px;
+  min-height: 190px;
+  background: #fff;
+  border: 1px solid rgba(219, 229, 238, .85);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(16,36,62,.05);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.logo-card img {
+  width: 100%;
+  height: 118px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-name {
+  font: 700 .86rem/1.3 Inter, sans-serif;
+  color: var(--navy);
+}
+
+/* Fine-tune visual balance between different logo aspect ratios */
+.logo-card-yp img {
+  height: 138px;
+}
+
+.logo-card-cs img {
+  height: 128px;
+}
+
+.logo-card-ras img {
+  height: 130px;
+}
+
+.logo-card-charlotte img {
+  height: 120px;
 }
 
 .collaboration-logos {
-    justify-content: center;
-    margin-top: 8px;
-    padding-left: 0;
+  flex-wrap: nowrap;
+  gap: 34px;
+}
+
+.collaboration-logos .logo-card {
+  width: 280px;
+  min-height: 200px;
+}
+
+.logo-card-r3 img {
+  height: 142px;
+}
+
+.logo-card-collab-cs img {
+  height: 130px;
+}
+
+@media (max-width: 900px) {
+  .collaboration-logos {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 600px) {
-    .details-section {
-        padding-bottom: 18px;
-    }
+  .details-section {
+    padding-bottom: 18px;
+  }
 
-    .organizers-section {
-        padding-top: 18px;
-        padding-bottom: 40px;
-    }
+  .organizers-section {
+    padding-top: 18px;
+    padding-bottom: 40px;
+  }
 
-    .organizer-logos {
-        gap: 16px;
-        margin-bottom: 20px;
-    }
+  .organizer-logos {
+    gap: 16px;
+    margin-bottom: 22px;
+  }
 
-    .organizer-logos img {
-        width: 150px;
-        height: 78px;
-        padding: 10px;
-    }
+  .logo-card,
+  .collaboration-logos .logo-card {
+    width: 100%;
+    max-width: 320px;
+    min-height: 170px;
+  }
+
+  .logo-card img,
+  .logo-card-yp img,
+  .logo-card-cs img,
+  .logo-card-ras img,
+  .logo-card-charlotte img,
+  .logo-card-r3 img,
+  .logo-card-collab-cs img {
+    height: 110px;
+  }
+
+  .logo-name {
+    font-size: .82rem;
+  }
 }
