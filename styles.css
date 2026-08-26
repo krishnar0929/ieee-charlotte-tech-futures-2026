@@ -166,135 +166,774 @@ footer { background: #03172f; color: rgba(255,255,255,.75); padding: 28px 0; }
 
 /* Organizers & Collaborators */
 .details-section {
-  padding-bottom: 24px;
+    padding-bottom: 24px;
 }
 
 .organizers-section {
-  padding-top: 24px;
-  padding-bottom: 54px;
+    padding-top: 24px;
+    padding-bottom: 56px;
 }
 
 .organizers-section .section-title {
-  margin: 8px 0 18px;
+    margin: 8px 0 18px;
 }
 
 .organizers-section h3 {
-  margin: 18px 0 14px;
-  font: 800 1.15rem Montserrat, sans-serif;
-  color: var(--navy);
+    margin: 14px 0 12px;
+    font: 800 1.15rem Montserrat, sans-serif;
+    color: var(--navy);
 }
 
 .organizer-logos {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  margin: 10px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 10px 0 24px;
 }
 
-.logo-card {
-  width: 250px;
-  min-height: 190px;
-  background: #fff;
-  border: 1px solid rgba(219, 229, 238, .85);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(16,36,62,.05);
-  padding: 18px 18px 16px;
+.organizer-logos img {
+    max-width: 85%;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.collaboration-logos img {
+    width: 90%;
+    height: 125px;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .details-section {
+        padding-bottom: 18px;
+    }
+
+    .organizers-section {
+        padding-top: 18px;
+        padding-bottom: 40px;
+    }
+
+    .organizer-logos {
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .organizer-logos img {
+        width: 150px;
+        height: 78px;
+        padding: 10px;
+    }
+}
+
+/* Top hosted-by logo strip */
+.top-logo-strip {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+.top-logo-inner {
+  min-height: 84px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  text-align: center;
+  gap: 28px;
+  padding: 12px 0;
 }
 
-.logo-card img {
-  width: 100%;
-  height: 118px;
-  object-fit: contain;
-  display: block;
-}
-
-.logo-name {
-  font: 700 .86rem/1.3 Inter, sans-serif;
+.top-logo-label {
+  flex: 0 0 auto;
+  font: 800 .8rem Montserrat, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: var(--navy);
 }
 
-/* Fine-tune visual balance between different logo aspect ratios */
-.logo-card-yp img {
-  height: 138px;
+.top-logo-list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
 
-.logo-card-cs img {
-  height: 128px;
-}
-
-.logo-card-ras img {
-  height: 130px;
-}
-
-.logo-card-charlotte img {
-  height: 120px;
-}
-
-.collaboration-logos {
-  flex-wrap: nowrap;
-  gap: 34px;
-}
-
-.collaboration-logos .logo-card {
-  width: 280px;
-  min-height: 200px;
-}
-
-.logo-card-r3 img {
-  height: 142px;
-}
-
-.logo-card-collab-cs img {
-  height: 130px;
+.top-logo-list img {
+  width: auto;
+  height: 46px;
+  max-width: 170px;
+  object-fit: contain;
 }
 
 @media (max-width: 900px) {
-  .collaboration-logos {
+  .top-logo-inner {
+    align-items: flex-start;
+  }
+
+  .top-logo-list {
     flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 18px 24px;
+  }
+
+  .top-logo-list img {
+    height: 42px;
+    max-width: 150px;
   }
 }
 
 @media (max-width: 600px) {
-  .details-section {
-    padding-bottom: 18px;
+  .top-logo-inner {
+    display: block;
+    padding: 12px 0 14px;
   }
 
-  .organizers-section {
-    padding-top: 18px;
-    padding-bottom: 40px;
+  .top-logo-label {
+    display: block;
+    margin-bottom: 10px;
   }
 
-  .organizer-logos {
-    gap: 16px;
-    margin-bottom: 22px;
+  .top-logo-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 
-  .logo-card,
-  .collaboration-logos .logo-card {
+  .top-logo-list img {
     width: 100%;
-    max-width: 320px;
-    min-height: 170px;
+    height: 42px;
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   ENHANCED HERO MOTION OVERRIDES
+   ========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Slowly drifting glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -15%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(0, 190, 235, 0.20), transparent 26%),
+    radial-gradient(circle at 72% 62%, rgba(245, 166, 35, 0.12), transparent 25%),
+    radial-gradient(circle at 85% 20%, rgba(0, 150, 220, 0.12), transparent 22%);
+  animation: heroGlowDrift 9s ease-in-out infinite alternate;
+}
+
+/* Moving technology grid */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  animation: gridMove 18s linear infinite;
+}
+
+.hero .wrap,
+.hero-grid {
+  position: relative;
+  z-index: 5;
+}
+
+/* Floating AI particles */
+.hero-motion {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-motion span {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(127, 221, 248, 0.80);
+  box-shadow:
+    0 0 10px rgba(127, 221, 248, 0.85),
+    0 0 25px rgba(127, 221, 248, 0.45),
+    0 0 45px rgba(127, 221, 248, 0.20);
+  animation:
+    aiFloat 7s ease-in-out infinite alternate,
+    particlePulse 2.8s ease-in-out infinite;
+}
+
+.hero-motion span:nth-child(1) { left: 3%;  top: 22%; animation-duration: 6s, 2.5s; }
+.hero-motion span:nth-child(2) { left: 17%; top: 72%; animation-duration: 8s, 3s; animation-delay: -2s, -1s; }
+.hero-motion span:nth-child(3) { left: 34%; top: 18%; width: 5px; height: 5px; animation-duration: 7s, 2.2s; animation-delay: -4s, -.5s; }
+.hero-motion span:nth-child(4) { left: 48%; top: 70%; animation-duration: 9s, 3.4s; animation-delay: -1s, -1.5s; }
+.hero-motion span:nth-child(5) { left: 62%; top: 27%; width: 6px; height: 6px; animation-duration: 7.5s, 2.8s; animation-delay: -3s, -1s; }
+.hero-motion span:nth-child(6) { left: 75%; top: 76%; animation-duration: 8.5s, 3.2s; animation-delay: -5s, -2s; }
+.hero-motion span:nth-child(7) { left: 87%; top: 30%; width: 6px; height: 6px; animation-duration: 7s, 2.6s; animation-delay: -2s, -1s; }
+.hero-motion span:nth-child(8) { left: 94%; top: 66%; animation-duration: 9s, 3.5s; animation-delay: -4s, -1.5s; }
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to   { background-position: 64px 64px; }
+}
+
+@keyframes heroGlowDrift {
+  0%   { transform: translate3d(-6%, 2%, 0) scale(1); }
+  100% { transform: translate3d(6%, -3%, 0) scale(1.10); }
+}
+
+@keyframes aiFloat {
+  0% {
+    transform: translate3d(0, 0, 0) scale(.75);
+    opacity: .25;
+  }
+  35% { opacity: .85; }
+  70% { opacity: .65; }
+  100% {
+    transform: translate3d(85px, -75px, 0) scale(1.35);
+    opacity: .35;
+  }
+}
+
+@keyframes particlePulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(127, 221, 248, .60),
+      0 0 18px rgba(127, 221, 248, .25);
+  }
+  50% {
+    box-shadow:
+      0 0 15px rgba(127, 221, 248, 1),
+      0 0 35px rgba(127, 221, 248, .60),
+      0 0 55px rgba(127, 221, 248, .25);
+  }
+}
+
+/* Gentle flyer motion */
+.poster-card {
+  animation: posterFloat 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes posterFloat {
+  0%, 100% { transform: translateY(0) rotate(1.25deg); }
+  50%      { transform: translateY(-9px) rotate(.7deg); }
+}
+
+/* Subtle shine on primary register button */
+.hero .btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .btn-primary::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -70%;
+  width: 40%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: rotate(20deg);
+  animation: buttonShine 5s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+  0%, 70% { left: -70%; }
+  100%    { left: 140%; }
+}
+
+/* Top host logos: slightly larger desktop presentation */
+.top-logo-inner {
+  min-height: 105px;
+  padding: 14px 0;
+}
+
+.top-logo-list {
+  gap: 34px;
+}
+
+.top-logo-list img {
+  width: auto;
+  height: 72px;
+  max-width: 230px;
+  object-fit: contain;
+}
+
+.top-logo-list img:last-child {
+  max-width: 270px;
+}
+
+/* Respect accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .hero-motion span,
+  .poster-card,
+  .hero .btn-primary::after {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-motion span {
+    width: 5px;
+    height: 5px;
   }
 
-  .logo-card img,
-  .logo-card-yp img,
-  .logo-card-cs img,
-  .logo-card-ras img,
-  .logo-card-charlotte img,
-  .logo-card-r3 img,
-  .logo-card-collab-cs img {
-    height: 110px;
+  .hero::after {
+    background-size: 45px 45px;
   }
 
-  .logo-name {
-    font-size: .82rem;
+  .top-logo-list img {
+    height: 48px;
+    max-width: 160px;
+  }
+
+  .top-logo-list img:last-child {
+    max-width: 185px;
+  }
+}
+
+/* =========================================================
+   ROBOT-THEMED HERO ARTWORK
+   ========================================================= */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(3, 25, 50, .92) 0%, rgba(5, 41, 78, .86) 42%, rgba(5, 52, 92, .78) 100%);
+}
+
+/* Generated Physical AI robotics artwork */
+.hero-art-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(90deg,
+      rgba(3, 24, 48, .70) 0%,
+      rgba(3, 24, 48, .58) 28%,
+      rgba(3, 24, 48, .26) 58%,
+      rgba(3, 24, 48, .12) 100%
+    ),
+    url("assets/physical-ai-robot-background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: .58;
+  filter: saturate(.92) contrast(1.03);
+  transform: scale(1.02);
+  animation: heroArtDrift 16s ease-in-out infinite alternate;
+}
+
+/* Add a dark readability veil beneath text */
+.hero-art-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 22% 48%, rgba(2, 23, 47, .34), transparent 34%),
+    linear-gradient(90deg,
+      rgba(2, 22, 44, .40) 0%,
+      rgba(2, 22, 44, .22) 45%,
+      rgba(2, 22, 44, .06) 100%
+    );
+}
+
+/* Existing grid remains visible but lighter */
+.hero::after {
+  opacity: .52;
+}
+
+/* Keep the glowing network and particles subtle over the robot artwork */
+.hero-motion {
+  opacity: .74;
+}
+
+.physical-ai-network {
+  opacity: .23;
+}
+
+.physical-ai-scan {
+  opacity: .22;
+}
+
+/* Slightly elevate hero content */
+.hero-grid {
+  position: relative;
+  z-index: 5;
+}
+
+/* Make flyer feel integrated with the robotic background */
+.poster-card {
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.32),
+    0 0 38px rgba(0,185,232,.11);
+}
+
+/* Slow cinematic movement */
+@keyframes heroArtDrift {
+  from {
+    transform: scale(1.02) translate3d(-1%, 0, 0);
+  }
+  to {
+    transform: scale(1.06) translate3d(1.5%, -1%, 0);
+  }
+}
+
+/* Keep headline crisp over complex art */
+.hero h1,
+.hero .eyebrow,
+.hero .hero-subtitle,
+.hero .hero-meta,
+.hero .hero-actions {
+  text-shadow: 0 2px 12px rgba(0,0,0,.22);
+}
+
+/* Mobile: reduce artwork intensity */
+@media (max-width: 900px) {
+  .hero-art-bg {
+    opacity: .40;
+    background-position: 62% center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-art-bg {
+    opacity: .30;
+    background-position: 68% center;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-art-bg {
+    animation: none !important;
+  }
+}
+
+/* =========================================================
+   FINAL EVENT PARTNERS - SINGLE HORIZONTAL LANE
+   ========================================================= */
+
+.partner-strip {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+
+.partner-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.partner-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+.partner-label {
+  flex: 0 0 auto;
+  font: 800 .78rem/1.2 Montserrat, sans-serif;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.partner-logos img {
+  display: block;
+  width: auto;
+  height: 58px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+/* Hosted By logo balance */
+.hosted-partner-logos img:first-child {
+  height: 62px;
+  max-width: 145px;
+}
+
+.hosted-partner-logos img:nth-child(2) {
+  height: 54px;
+  max-width: 130px;
+}
+
+.hosted-partner-logos img:nth-child(3) {
+  height: 64px;
+  max-width: 150px;
+}
+
+.hosted-partner-logos img:nth-child(4) {
+  height: 66px;
+  max-width: 190px;
+}
+
+/* Collaboration logo balance */
+.collaboration-partner-logos img:first-child {
+  height: 64px;
+  max-width: 155px;
+}
+
+.collaboration-partner-logos img:nth-child(2) {
+  height: 54px;
+  max-width: 130px;
+}
+
+.partner-divider {
+  width: 1px;
+  height: 70px;
+  background: #dbe4ed;
+  flex: 0 0 1px;
+}
+
+/* Slightly tighter spacing on smaller desktops */
+@media (max-width: 1280px) {
+  .partner-strip-inner {
+    gap: 22px;
+  }
+
+  .partner-group {
+    gap: 16px;
+  }
+
+  .partner-logos {
+    gap: 14px;
+  }
+
+  .partner-logos img {
+    height: 50px;
+    max-width: 125px;
+  }
+
+  .hosted-partner-logos img:first-child,
+  .hosted-partner-logos img:nth-child(3),
+  .hosted-partner-logos img:nth-child(4),
+  .collaboration-partner-logos img:first-child {
+    height: 54px;
+  }
+
+  .hosted-partner-logos img:nth-child(4) {
+    max-width: 160px;
+  }
+}
+
+/* Tablet/mobile: stack the two groups cleanly */
+@media (max-width: 900px) {
+  .partner-strip-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .partner-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .partner-group {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .partner-logos {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .partner-logos img,
+  .hosted-partner-logos img:first-child,
+  .hosted-partner-logos img:nth-child(2),
+  .hosted-partner-logos img:nth-child(3),
+  .hosted-partner-logos img:nth-child(4),
+  .collaboration-partner-logos img:first-child,
+  .collaboration-partner-logos img:nth-child(2) {
+    width: 100%;
+    height: 58px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* =========================================================
+   FINAL ROBOT BACKGROUND FIX
+   Removes duplicated text/poster from the generated artwork.
+   Only the far-left and far-right robot areas are used.
+   ========================================================= */
+
+.hero-art-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  /* IMPORTANT: do not render the entire generated website image */
+  background: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Left robot crop */
+.hero-art-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 25%;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(3, 25, 50, .10) 0%,
+      rgba(3, 25, 50, .12) 60%,
+      rgba(3, 25, 50, .95) 100%
+    ),
+    url("assets/physical-ai-robot-background.png");
+
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: left center;
+
+  opacity: .42;
+  filter: saturate(.82) contrast(1.05);
+}
+
+/* Right robot / drone crop */
+.hero-art-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 27%;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      270deg,
+      rgba(3, 25, 50, .08) 0%,
+      rgba(3, 25, 50, .14) 58%,
+      rgba(3, 25, 50, .96) 100%
+    ),
+    url("assets/physical-ai-robot-background.png");
+
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right center;
+
+  opacity: .42;
+  filter: saturate(.82) contrast(1.05);
+}
+
+/* Preserve the clean navy technology background in the center */
+.hero {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(0, 185, 232, .16), transparent 28%),
+    radial-gradient(circle at 17% 75%, rgba(0, 150, 220, .08), transparent 24%),
+    linear-gradient(135deg, #041b37 0%, #062a54 55%, #083b70 100%) !important;
+}
+
+/* Keep the technology grid and particles, but no duplicated artwork content */
+.hero::after {
+  opacity: .55;
+}
+
+/* Center content always above decorative robots */
+.hero-grid,
+.hero .wrap {
+  position: relative;
+  z-index: 5;
+}
+
+/* Make left robot more subtle behind headline */
+.hero-copy {
+  position: relative;
+  z-index: 6;
+}
+
+/* Poster remains the only event flyer visible */
+.poster-card {
+  position: relative;
+  z-index: 6;
+}
+
+/* No ghosting from backdrop blur */
+.poster-card {
+  backdrop-filter: none !important;
+}
+
+/* Desktop adjustments */
+@media (min-width: 901px) {
+  .hero-art-bg::before {
+    width: 22%;
+    opacity: .34;
+  }
+
+  .hero-art-bg::after {
+    width: 24%;
+    opacity: .34;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .hero-art-bg::before {
+    width: 30%;
+    opacity: .25;
+  }
+
+  .hero-art-bg::after {
+    width: 32%;
+    opacity: .25;
+  }
+}
+
+/* Mobile: keep only a faint right-side robotics accent */
+@media (max-width: 600px) {
+  .hero-art-bg::before {
+    display: none;
+  }
+
+  .hero-art-bg::after {
+    width: 48%;
+    opacity: .18;
   }
 }
